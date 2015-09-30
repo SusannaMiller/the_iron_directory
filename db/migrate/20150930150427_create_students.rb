@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :name
       t.string :course
       t.string :cohort
+      
       t.timestamps null: false
     end
   end
