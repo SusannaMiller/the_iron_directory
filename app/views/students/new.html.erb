@@ -1,4 +1,10 @@
 <%= semantic_form_for @student do |f| %>
-	<%= f.inputs %>
+	<%= f.inputs do %>
+		<%= f.input :first_name %>
+		<%= f.input :last_name %>
+		<%= f.input :cohort %>
+		<%= f.input :course %>
+		<%= f.input :photo %>
+	<% end %>
 	<%= f.actions %>
 <% end %>

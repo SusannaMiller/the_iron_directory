@@ -2,5 +2,6 @@
 	<li> <%= @student.first_name %> <%= @student.last_name %> </li>
 	<li> <%= @student.course %> </li>
 	<li> <%= @student.cohort %> </li>
+	<li> <%= image_tag(@student.photo.url(:medium)) %> </li>
 </ul>
 <%= link_to "All students", students_path %>
