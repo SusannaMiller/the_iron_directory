@@ -1,8 +1,4 @@
 <li>
-	<!--<%= #image_tag student.photo.url(:thumb) || "missing.png" %>-->
-	<%= if student.photo %>
-		<%= true %>
-	<% end %>
 	<%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %>
 	<%= button_to "Delete student", {action: "destroy", id: student.id}, {method: :delete} %>
 </li>

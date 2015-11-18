@@ -19,4 +19,13 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id]).destroy
 		redirect_to students_path
 	end
+	def edit
+		@student = Student.find(params[:id])
+		render :new
+	end
+	def update
+		@student = Student.find(params[:id])
+		@student.update(student_params)
+		redirect_to student_path(@student)
+	end
 end
