@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  resources :students
+  resources :students do
+    resources :jobs
+  end
+
 #         Prefix Verb   URI Pattern                  Controller#Action
+#Action
+#     student_jobs GET    /students/:student_id/jobs(.:format)          jobs#index
+#                  POST   /students/:student_id/jobs(.:format)          jobs#create
+#  new_student_job GET    /students/:student_id/jobs/new(.:format)      jobs#new
+# edit_student_job GET    /students/:student_id/jobs/:id/edit(.:format) jobs#edit
+#      student_job GET    /students/:student_id/jobs/:id(.:format)      jobs#show
+#                  PATCH  /students/:student_id/jobs/:id(.:format)      jobs#update
+#                  PUT    /students/:student_id/jobs/:id(.:format)      jobs#update
+#                  DELETE /students/:student_id/jobs/:id(.:format)      jobs#destroy
+
 #     students GET    /students(.:format)          students#index
 #              POST   /students(.:format)          students#create
 #  new_student GET    /students/new(.:format)      students#new
