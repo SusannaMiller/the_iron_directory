@@ -4,4 +4,6 @@
 	<li> <%= "#{job.start_month}, #{job.start_year} - #{job.end_month}, #{job.end_year}" %> </li>
 	<li> <%= "Responsibilities:" %> </li>
 	<li> <%= job.responsibilities %> </li>
+	<li> <%= link_to "Edit Job", edit_student_job_path(job.student, job) %> </li>
+	<li> <%= link_to "Delete Job", student_job_path(job.student, job), {method: :delete} %> </li>
 </ul>
