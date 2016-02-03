@@ -6,10 +6,11 @@
 	<li> <%= image_tag(@student.photo.url(:medium)) %> </li>
 	<li> <%= link_to "Edit Student Information", edit_student_path(@student) %> </li>
 	<li> <%= link_to "Add Job", new_student_job_path(@student) %> </li>
+	<li> <%= link_to "Add Contact", new_student_contact_path(@student) %> </li>
 </ul>
 
 <ul>
-	<%= render partial: @contacts %>
+	<%= render partial: "contacts/contact", collection: @student.contacts %>
 </ul>
 
 <ul>
