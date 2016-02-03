@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :students do
     resources :jobs
+    resources :contacts
   end
 
 #         Prefix Verb   URI Pattern                  Controller#Action

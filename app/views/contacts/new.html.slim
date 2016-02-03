@@ -1,0 +1,6 @@
+= semantic_form_for [@student, @contact] do |f|
+	= f.inputs do
+		= f.input :category, :as => :hidden, :input_html => { :value => "Email" }
+		= f.input :info, label: "Email "
+	= f.actions	
+		

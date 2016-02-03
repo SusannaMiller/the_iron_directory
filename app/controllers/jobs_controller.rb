@@ -7,7 +7,7 @@ class JobsController < ApplicationController
 		@student = Student.find(params[:student_id])
 		@job = @student.jobs.create!(job_params)
 		@job_params = job_params
-		#redirect_to student_path(@student)
+		redirect_to student_path(@student)
 	end
 	def edit
 		@student = Student.find(params[:student_id])
