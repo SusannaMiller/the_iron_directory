@@ -1,6 +1,5 @@
-= semantic_form_for [@student, @contact] do |f|
-	- @contacts.each do |contact|
-		= semantic_fields_for contact do |c|
-			= render "contacts/form", c: c
-	= f.actions	
+= semantic_form_for @student, url: student_contacts_path, method: :post  do |f|
+  = f.inputs for: :contact do |c|
+		= render "contacts/form", c: c
+  = f.actions	
 		
