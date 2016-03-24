@@ -1,13 +1,14 @@
 class ContactsController < ApplicationController
 	def new
 		@student = Student.find (params[:student_id])
-		@contacts = Array.new(2) { @student.contacts.new }
-		@contact = @student.contacts.new
+		2.times do 
+			@student.contacts.build
+		end
 	end
 	def create
 		 
 	end	
 	def contact_params
-		params.require(:contact).permit(:category, :info, :student_id, :id)
+		params.require(:contacts).permit(:id, :student_id, :category, :info)
 	end
 end

@@ -8,13 +8,17 @@ class StudentsController < ApplicationController
 	end
 	def new
 		@student = Student.new
+		@cats = ["email", "phone", "slack"]
+		3.times do
+			@student.contacts.build
+		end 
 	end	
 	def create
 		@student = Student.create!(student_params)
 		redirect_to students_path
 	end
 	def student_params
-		params.require(:student).permit(:first_name, :last_name, :course, :cohort, :id, :photo)
+		params.require(:student).permit(:first_name, :last_name, :course, :cohort, :id, :photo, contacts_attributes: [:category, :info, :id])
 	end
 	def destroy
 		@student = Student.find(params[:id]).destroy
@@ -22,6 +26,7 @@ class StudentsController < ApplicationController
 	end
 	def edit
 		@student = Student.find(params[:id])
+		@cats = ["email", "phone", "slack"]
 		render :new
 	end
 	def update
