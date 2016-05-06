@@ -11,6 +11,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Student.create!(first_name: "Lars", last_name: "Smith", course: "iOS", cohort: "fall 2015")
-Student.create!(first_name: "Alan", last_name: "Jones", course: "RoR", cohort: "fall 2015")
-Student.create!(first_name: "Kate", last_name: "Johnson", course: "iOS", cohort: "summer 2015")
+Program.destroy_all
+@programs = ["Back-End Engineering", "Data Science", "Design", "Front-End Engineering", "Mobile Engineering"].map do |name|
+	Program.create!(name: name)	
+end

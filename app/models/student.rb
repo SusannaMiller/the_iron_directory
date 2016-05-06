@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
-	has_many :jobs
+	has_many :jobs, dependent: :destroy
 	accepts_nested_attributes_for :jobs
-	has_many :contacts
+	has_many :contacts, dependent: :destroy
 	accepts_nested_attributes_for :contacts
 	belongs_to :cohort
 	belongs_to :course
