@@ -1,4 +1,4 @@
 class Program < ActiveRecord::Base
-	has_many :students
-	belongs_to :cohort
+	has_many :courses
+	has_many :students, through: :courses
 end
