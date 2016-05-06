@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202161515) do
+ActiveRecord::Schema.define(version: 20160413204951) do
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string   "season"
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "category"
@@ -34,6 +41,14 @@ ActiveRecord::Schema.define(version: 20151202161515) do
     t.integer  "student_id"
   end
 
+  create_table "programs", force: :cascade do |t|
+    t.string   "course"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "cohort_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "course"
@@ -45,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151202161515) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "program_id"
   end
 
 end

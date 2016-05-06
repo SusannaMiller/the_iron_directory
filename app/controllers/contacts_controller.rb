@@ -5,9 +5,6 @@ class ContactsController < ApplicationController
 			@student.contacts.build
 		end
 	end
-	def create
-		 
-	end	
 	def contact_params
 		params.require(:contacts).permit(:id, :student_id, :category, :info)
 	end
