@@ -2,11 +2,16 @@
 	<%= f.inputs do %>
 		<%= f.input :first_name %>
 		<%= f.input :last_name %>
-		<%= f.input :cohort %>
-		<%= f.input :course %>
 		<%= f.input :photo %>
 	<% end %>
   <%- i = 0 %>
+  <%= f.inputs for: :cohorts do |cohort|  %>
+  	<%= cohort.input :season, :as => :select, :collection => ["Spring", "Summer", "Fall"] %>
+  	<%= cohort.input :year, :as => :select, :collection => (2014..Time.now.year).to_a.reverse %>
+  <% end %>
+  <%= f.inputs for: :courses do |course| %>
+    <%= course.input :name, label: "Course Name", :as => :select, :collection => Course.all.pluck(:name) %>
+  <% end %>
   <%= f.inputs for: :contacts do |c| %>
     <%= c.input :category, as: :hidden, input_html: {value: @cats[i]} %>
     <%= c.input :info, label: @cats[i] %>
