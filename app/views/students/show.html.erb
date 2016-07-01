@@ -1,8 +1,9 @@
 <ul>
 	<li> <%= link_to "All students", students_path %> </li>
 	<li> <%= @student.first_name %> <%= @student.last_name %> </li>
-	<li> <%= @student.course %> </li>
 	<li> <%= @student.cohort %> </li>
+	<li> <%= @student.course.program.name %> </li>
+	<li> <%= @student.course.name %> </li>
 	<li> <%= image_tag(@student.photo.url(:medium)) %> </li>
 	<li> <%= link_to "Edit Student Information", edit_student_path(@student) %> </li>
 	<li> <%= link_to "Add Job", new_student_job_path(@student) %> </li>
