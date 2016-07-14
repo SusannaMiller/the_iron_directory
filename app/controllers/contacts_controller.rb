@@ -1,18 +1,18 @@
 #defines the class "ContactsController" as inheriting from the ApplicationController
 class ContactsController < ApplicationController
-	#Defines the class action "new"
+	#Defines the action "new" for contracts controller
 	def new
-		#for each instance of student, find that particular instance using the student ide
+		#for each instance of student, find that particular instance using the student id
 		@student = Student.find (params[:student_id])
-		#????
+		#"Do the block below x2"
 		2.times do 
-			#build the contact associated with that student instance
+			#build the contact associated with that student instance (twice, RE above, because we have 2 pieces of contact info/student)
 			@student.contacts.build
-		#complete whatever this is
+		#end of this action
 		end
 	#complete the new contact action
 	end
-	#starts a class action (is this what you call that? help) that defines the parameters for contact
+	#defines the method "contact_params" for contacts controller - b/c in controller can be accessed by any actions we put in here. Not from other files, like model, etc
 	def contact_params
 		#lists the parameters that each instance of contact must have
 		params.require(:contacts).permit(:id, :student_id, :category, :info)
