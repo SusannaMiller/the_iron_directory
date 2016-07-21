@@ -1,12 +1,12 @@
 # Inherits from ApplicationController class. This defines what this controller is: the Students Controller
 class StudentsController < ApplicationController
 	#This defines what the "show" action does for the students controller
-	def show 
+	def show
 		#for each student, find that student using their id, in the student params list
 		@student = Student.find(params[:id])
 		#find all the jobs associated with eash student and display
 		@jobs = @student.jobs.all
-	#wraps up the "show" action	
+	#wraps up the "show" action
 	end
 	#defines the index action for students controller
 	def index
@@ -24,17 +24,17 @@ class StudentsController < ApplicationController
 		3.times do
 			#build a contact attached to the student (x3 b/c above)
 			@student.contacts.build
-		#wrap up "do" action	
-		end 
-	#wrap up "new" action	
-	end	
+		#wrap up "do" action
+		end
+	#wrap up "new" action
+	end
 	#defines "create" action for students controller
 	def create
 		#for each student, create student params
 		@student = Student.create!(student_params)
 		#once created, go back to students path
 		redirect_to students_path
-	#wrap up "create" action	
+	#wrap up "create" action
 	end
 	#defines parameters for students controller
 	def student_params
@@ -48,7 +48,7 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id]).destroy
 		#go back to the student path
 		redirect_to students_path
-	#wraps up student "destroy" action	
+	#wraps up student "destroy" action
 	end
 	#defines "edit" action for students controller
 	def edit
@@ -58,7 +58,7 @@ class StudentsController < ApplicationController
 		@cats = ["email", "phone", "slack"]
 		#go to the new student page in order to edit
 		render :new
-	#wraps up "edit" action	
+	#wraps up "edit" action
 	end
 	#defines the "update" action for students controller
 	def update
@@ -68,7 +68,7 @@ class StudentsController < ApplicationController
 		@student.update(student_params)
 		#go back to the student path when done
 		redirect_to student_path(@student)
-	#wraps up "update" action	
+	#wraps up "update" action
 	end
-#wraps up students controller	
+#wraps up students controller
 end
