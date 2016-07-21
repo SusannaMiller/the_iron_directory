@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
 		#for each instance of student, find that particular instance using the student id
 		@student = Student.find (params[:student_id])
 		#"Do the block below x2"
-		2.times do 
+		2.times do
 			#build the contact associated with that student instance (twice, RE above, because we have 2 pieces of contact info/student)
 			@student.contacts.build
 		#end of this action
