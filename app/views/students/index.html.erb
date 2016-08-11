@@ -1,4 +1,8 @@
+#starts unordered list
 <ul>
+	#show the students page
 	<%= render partial: @students %>
+#ends unordered list
 </ul>
+#Displays "Create New Student" and text is link to new student page
 <%= link_to "Create New Student", new_student_path %>

@@ -1,12 +1,24 @@
+#defines that this is a form field for specific student and specific job. For item below, the action is linked to a specific student and job
 <%= semantic_form_for [@student, @job] do |f| %>
+	#for each input, do whatever is below
 	<%= f.inputs do %>
+		#input the name of company
 		<%= f.input :company %>
+		#input field for title of job
 		<%= f.input :title %>
+		#input field for start month for job - the field is a dropdown collection of month names
 		<%= f.input :start_month, :as => :select, :collection => Date::MONTHNAMES %>
+		#input field for start year - field is a dropdown collection of years from 1950 to now, starting with most recent year
 		<%= f.input :start_year, :as => :select, :collection => (1950..Time.now.year).to_a.reverse %>
+		#input field for end month for job - the field is a dropdown collection of month names
 		<%= f.input :end_month, :as => :select, :collection => Date::MONTHNAMES %>
+		#input field for end year - field is a dropdown collection of years from 1950 to now, starting with most recent year
 		<%= f.input :end_year, :as => :select, :collection => (1950..Time.now.year).to_a.reverse %>
+		#input for responsibilities field - open text field
 		<%= f.input :responsibilities, :as => :text %>
+	#wraps up this action
 	<% end %>
+	#wraps up inputs section
 	<%= f.actions %>
+#closes form creation
 <% end %>

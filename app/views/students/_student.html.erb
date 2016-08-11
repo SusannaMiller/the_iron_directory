@@ -1,4 +1,8 @@
+#opens ordered list
 <li>
+	#Displays student first and last name - and text is a link to the individual student page
 	<%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %>
+	#Creates a button called "Delete student". When clicked, deletes student using student id to identify student
 	<%= button_to "Delete student", {action: "destroy", id: student.id}, {method: :delete} %>
+#end of list	
 </li>

@@ -1,21 +1,42 @@
+#opens a new semantic form for creating a student. For each student do the action identified by 'f'
 <%= semantic_form_for @student do |f| %>
+	#for each input do the action below
 	<%= f.inputs do %>
+		#first input is the first name of student
 		<%= f.input :first_name %>
+		#next input is student last name
 		<%= f.input :last_name %>
+		#next input is photo of student
 		<%= f.input :photo %>
+	#wraps up inputs for student
 	<% end %>
+	????
   <%- i = 0 %>
+	#for the inputs below, each one is associated with a specific cohort
   <%= f.inputs for: :cohorts do |cohort|  %>
+		#first cohort field is a dropdown menu with 3 options "Spring" "Summer" "Fall"
   	<%= cohort.input :season, :as => :select, :collection => ["Spring", "Summer", "Fall"] %>
+		#next cohort input is the year. Input field is a dropdown menu of years from 2014 to present, most recent year first
   	<%= cohort.input :year, :as => :select, :collection => (2014..Time.now.year).to_a.reverse %>
+	#wraps up cohort section of form
   <% end %>
+	#inputs below this are for courses associated with student
   <%= f.inputs for: :courses do |course| %>
+		#course input displays "Course Name" next to dropdown menu, which displays list of courses entered in seed file
     <%= course.input :name, label: "Course Name", :as => :select, :collection => Course.all.pluck(:name) %>
+	#wraps up inputs for courses associated with student
   <% end %>
+	#inputs below this are for contact info associated with each student
   <%= f.inputs for: :contacts do |c| %>
+		#creates secret category (not displayed)
     <%= c.input :category, as: :hidden, input_html: {value: @cats[i]} %>
+		#????
     <%= c.input :info, label: @cats[i] %>
+		#????
     <%- i = i + 1 %>
+	#wraps up input fields for contacts category
   <% end %>
+	#closes actions for this form
 	<%= f.actions %>
+#end of form
 <% end %>

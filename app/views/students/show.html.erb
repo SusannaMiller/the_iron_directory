@@ -1,18 +1,34 @@
+#opens unordered list
 <ul>
-	<li> <%= link_to "All students", students_path %> </li>
+	#Creates text reading "All Students" which is a link to students path
+	<li> <%= link_to "All Students", students_path %> </li>
+	#next list item is first name and last name of student
 	<li> <%= @student.first_name %> <%= @student.last_name %> </li>
+	#next list item is cohort student is in
 	<li> <%= @student.cohort %> </li>
+	#4th list item is student course program name
 	<li> <%= @student.course.program.name %> </li>
+	#5th list item is name of course student is in
 	<li> <%= @student.course.name %> </li>
+	#6th item is the student's photo, in medium size
 	<li> <%= image_tag(@student.photo.url(:medium)) %> </li>
+	#7th list item is text that displays "Edit Student Information" which is a link to edit the student's info
 	<li> <%= link_to "Edit Student Information", edit_student_path(@student) %> </li>
+	#8th item is text "Add Job" which is a link to the new student job page
 	<li> <%= link_to "Add Job", new_student_job_path(@student) %> </li>
+#ends list
 </ul>
 
+#opens unordered list
 <ul>
+	#display the contacts collection for that student
 	<%= render partial: "contacts/contact", collection: @student.contacts %>
+#end the unordered list
 </ul>
 
+#opens unordered list
 <ul>
+	#display the jobs info for that student
 	<%= render partial: @jobs %>
+#closes this list
 </ul>
