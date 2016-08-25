@@ -1,34 +1,37 @@
-#opens unordered list
+# opens unordered list
 <ul>
-	#Creates text reading "All Students" which is a link to students path
+	# Creates text reading "All Students" which is a link to students path
 	<li> <%= link_to "All Students", students_path %> </li>
-	#next list item is first name and last name of student
+	# next list item is first name and last name of student
 	<li> <%= @student.first_name %> <%= @student.last_name %> </li>
-	#next list item is cohort student is in
+	# next list item is cohort student is in
 	<li> <%= @student.cohort %> </li>
-	#4th list item is student course program name
+	# 4th list item is student course program name
 	<li> <%= @student.course.program.name %> </li>
-	#5th list item is name of course student is in
+	# 5th list item is name of course student is in
 	<li> <%= @student.course.name %> </li>
-	#6th item is the student's photo, in medium size
+	# 6th item is the student's photo, in medium size
 	<li> <%= image_tag(@student.photo.url(:medium)) %> </li>
-	#7th list item is text that displays "Edit Student Information" which is a link to edit the student's info
+	# 7th list item is text that displays "Edit Student Information" which is a link to edit the student's info
 	<li> <%= link_to "Edit Student Information", edit_student_path(@student) %> </li>
-	#8th item is text "Add Job" which is a link to the new student job page
+	# 8th item is text "Add Job" which is a link to the new student job page
 	<li> <%= link_to "Add Job", new_student_job_path(@student) %> </li>
-#ends list
+# ends list
 </ul>
 
 #opens unordered list
 <ul>
-	#display the contacts collection for that student
-	<%= render partial: "contacts/contact", collection: @student.contacts %>
-#end the unordered list
+	<!-- display the contacts collection for that student.
+	Note: You can use @contacts here because that's defined in the students controller.
+	The syntax below assumes that the partial will be in the view folder, under "contacts"  as "_contact"
+	otherwise you'd need to specify where the partial was  -->
+	<%= render partial: @contacts %>
+# end the unordered list
 </ul>
 
-#opens unordered list
+# opens unordered list
 <ul>
-	#display the jobs info for that student
+	# display the jobs info for that student
 	<%= render partial: @jobs %>
-#closes this list
+# closes this list
 </ul>

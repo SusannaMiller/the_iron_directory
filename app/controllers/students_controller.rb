@@ -4,8 +4,10 @@ class StudentsController < ApplicationController
 	def show
 		#for each student, find that student using their id, in the student params list
 		@student = Student.find(params[:id])
-		#find all the jobs associated with eash student and display
+		#find all the jobs associated with each student and display
 		@jobs = @student.jobs.all
+		# find all the contacts assocaited with each student and display - you can call them using @contacts elsewhere in app
+		@contacts = @student.contacts.all
 	#wraps up the "show" action
 	end
 	#defines the index action for students controller
