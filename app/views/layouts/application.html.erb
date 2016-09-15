@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+# This is what displayes on your tab in the browser. The body is everything else in this application
+# The body will change - hence the "yield" below, but the header is consistent
   <title>TheIronDirectory</title>
+  # Links in our assets to every page has access (have not done much with this yet)
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

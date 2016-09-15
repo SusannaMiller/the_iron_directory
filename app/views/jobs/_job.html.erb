@@ -1,18 +1,19 @@
-#open unordered list
+# open unordered list
 <ul>
-	#list item: displays "Company: (name of company entered by grad)"
+	# list item: displays "Company: (name of company entered by grad)" job.company = variable. Because can't hard code in specific company name
+	# this is called string interpolation. Allows you to put variables (job, company) into single string
 	<li> <%= "Company: #{job.company}" %> </li>
-	#list item: displayes "Title: (job title entered by grad)"
+	# list item: displayes "Title: (job title entered by grad)"
 	<li> <%= "Title: #{job.title}" %> </li>
-	#list item: displays start date (month and year) and end date (month and year) as entered by grad
+	# list item: displays start date (month and year) and end date (month and year) as entered by grad
 	<li> <%= "#{job.start_month}, #{job.start_year} - #{job.end_month}, #{job.end_year}" %> </li>
-	#list item: displayes "Responsibilities:"
+	# list item: displayes "Responsibilities:"
 	<li> <%= "Responsibilities:" %> </li>
-	#list item: displayes the info that grad entered of what they did during job
+	# list item: displayes the info that grad entered of what they did during job
 	<li> <%= job.responsibilities %> </li>
-	#list item: displays "Edit Job" but text is also a link back to the page where you enter job info
+	# list item: displays "Edit Job" but text is also a link back to the page where you enter job info
 	<li> <%= link_to "Edit Job", edit_student_job_path(job.student, job) %> </li>
-	#list item: displays "Delete Job" but text is a link to action that deletes the listed job
+	# list item: displays "Delete Job" but text is a link to action that deletes the listed job
 	<li> <%= link_to "Delete Job", student_job_path(job.student, job), {method: :delete} %> </li>
-#close unordered list	
+# close unordered list
 </ul>

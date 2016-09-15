@@ -6,9 +6,9 @@
 		<%= f.input :company %>
 		#input field for title of job
 		<%= f.input :title %>
-		#input field for start month for job - the field is a dropdown collection of month names
+		#input field for start month for job - the field is a dropdown collection of month names (month names through date module in Ruby (module it comes from::data or method from that module)
 		<%= f.input :start_month, :as => :select, :collection => Date::MONTHNAMES %>
-		#input field for start year - field is a dropdown collection of years from 1950 to now, starting with most recent year
+		#input field for start year - field is a dropdown collection of years from 1950 to now, starting with most recent year (the .. mean range, inclusive. ... is exclusive)
 		<%= f.input :start_year, :as => :select, :collection => (1950..Time.now.year).to_a.reverse %>
 		#input field for end month for job - the field is a dropdown collection of month names
 		<%= f.input :end_month, :as => :select, :collection => Date::MONTHNAMES %>
